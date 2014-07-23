@@ -369,7 +369,7 @@
 
                 if(!utils.fenceRange()){ return; }
 
-                if (e.keyCode == 9) {
+                if (e.keyCode == 9 || ((e.keyCode == 219 || e.keyCode == 221) && (e.metaKey || e.ctrlKey))) {
                     utils.preventDefaultEvent(e);
                     
                     var toReturn = true;
@@ -393,7 +393,7 @@
                             lines = toIndent.split("\n"),
                             i;
 
-                        if(e.shiftKey){
+                        if ((e.keyCode == 9 && e.shiftKey) || e.keyCode == 219) {
                             for(i = 0; i<lines.length; i++){
                                 if(lines[i].substring(0,tab.length) == tab){
                                     lines[i] = lines[i].substring(tab.length);
